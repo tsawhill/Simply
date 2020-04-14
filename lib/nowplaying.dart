@@ -1,11 +1,20 @@
+import 'package:just_audio/just_audio.dart';
+import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 
-class NowPlaying extends StatelessWidget {
+class NowPlaying extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return NowPlayingState();
+  }
+}
+
+class NowPlayingState extends State<NowPlaying> {
   @override
   Widget build(BuildContext context){
-    return Container(
-      padding: EdgeInsets.all(25),
-      child: Text('Now Playing'),
+    return Column(
+      children: <Widget>[
+        ]
     );
   }
 }
