@@ -29,15 +29,23 @@ class SongsPageState extends State<SongsPage> {
         else
           return Container(
             child: ListView.builder(
+
               itemCount: snapshot.data.length,
               itemBuilder: (BuildContext context, int index){
-                return FlatButton(
-                  child: Text('${snapshot.data[index].title}'),
-                  onPressed: (){
+                return ListTile(
+                  leading: (() {
+                    final song = snapshot.data[index];
+                    print(song.albumArtwork);
+                    if(song.albumArtwork != null)
+                      return Image(image: song.albumArtwork);
+                    else
+                      return Icon(Icons.album);
+                  }()),
+                  title: Text('${snapshot.data[index].title}'),
+                  subtitle: Text('${snapshot.data[index].artist}'),
+                  onTap: (){
                     playSong('${snapshot.data[index].filePath}', snapshot.data[index].title, snapshot.data[index].album, snapshot.data[index].artist);
                   },
-
-
                 );
               }
             )
