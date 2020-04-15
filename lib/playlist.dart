@@ -5,7 +5,7 @@ class PlaylistsPage extends StatelessWidget {
   Widget build(BuildContext context){
     return Container(
       padding: EdgeInsets.all(25),
-      child: Text('Playlists'),
+      child: Text('TODO'),
     );
   }
 }
