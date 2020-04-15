@@ -39,7 +39,7 @@ class SongsPageState extends State<SongsPage> {
                     if(song.albumArtwork != null)
                       return Image(image: song.albumArtwork);
                     else
-                      return Icon(Icons.album);
+                      return Icon(Icons.music_note);
                   }()),
                   title: Text('${snapshot.data[index].title}'),
                   subtitle: Text('${snapshot.data[index].artist}'),
