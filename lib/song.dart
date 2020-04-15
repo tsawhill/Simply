@@ -34,7 +34,7 @@ class SongsPageState extends State<SongsPage> {
                 return FlatButton(
                   child: Text('${snapshot.data[index].title}'),
                   onPressed: (){
-                    playSong('${snapshot.data[index].filePath}');
+                    playSong('${snapshot.data[index].filePath}', snapshot.data[index].title, snapshot.data[index].album, snapshot.data[index].artist);
                   },
 
 
@@ -50,8 +50,9 @@ class SongsPageState extends State<SongsPage> {
     return audioQuery.getSongs();
   }
 
-  Future<void> playSong(String filePath) async {
+  Future<void> playSong(String filePath, String title, String artist, String album) async {
     var duration = await player.setFilePath(filePath);
+    player.stop();
     player.play();
   }
 
