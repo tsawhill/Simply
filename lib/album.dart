@@ -23,9 +23,17 @@ class AlbumPageState extends State<AlbumPage> {
                 child: ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return FlatButton(
-                        child: Text('${snapshot.data[index].title}'),
-                        onPressed: () {
+                      return ListTile(
+                        leading: (() {
+                          final album = snapshot.data[index];
+                          print(album.albumArt);
+                          if(album.albumArt != null)
+                            return Image(image: album.albumArt);
+                          else
+                            return Icon(Icons.album);
+                        }()),
+                        title: Text('${snapshot.data[index].title}'),
+                        onTap: () {
 
                         },
 
