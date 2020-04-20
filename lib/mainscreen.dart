@@ -4,7 +4,6 @@ import 'settings.dart';
 import 'song.dart';
 import 'artist.dart';
 import 'nowplaying.dart';
-import 'playlist.dart';
 
 
 class MainScreen extends StatefulWidget {
@@ -22,7 +21,6 @@ class MainScreenState extends State<MainScreen> {
     ArtistsPage(),
     NowPlaying(),
     SongsPage(),
-    PlaylistsPage(),
   ];
 
   @override
@@ -83,11 +81,6 @@ class MainScreenState extends State<MainScreen> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.music_note),
                 title: Text('Songs')
-            ),
-
-            BottomNavigationBarItem(
-                icon: Icon(Icons.playlist_play),
-                title: Text('Playlists')
             ),
           ],
         ),
