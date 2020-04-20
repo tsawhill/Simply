@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_audio_query/flutter_audio_query.dart';
+import 'package:simply_music/albumsbyartist.dart';
 
 class ArtistsPage extends StatefulWidget {
   @override
@@ -23,10 +24,14 @@ class ArtistPageState extends State<ArtistsPage> {
                 child: ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return FlatButton(
-                        child: Text('${snapshot.data[index].name}'),
-                        onPressed: () {
-
+                      return ListTile(
+                        leading: Icon(Icons.mic),
+                        title: Text('${snapshot.data[index].name}'),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => AlbumsByArtist(artist: '${snapshot.data[index].name}')),
+                          );
                         },
 
 

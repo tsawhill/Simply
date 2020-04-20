@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_audio_query/flutter_audio_query.dart';
+import 'package:simply_music/songbyalbum.dart';
 
 class AlbumPage extends StatefulWidget {
   @override
@@ -26,7 +27,6 @@ class AlbumPageState extends State<AlbumPage> {
                       return ListTile(
                         leading: (() {
                           final album = snapshot.data[index];
-                          print(album.albumArt);
                           if(album.albumArt != null)
                             return Image(image: album.albumArt);
                           else
@@ -34,7 +34,9 @@ class AlbumPageState extends State<AlbumPage> {
                         }()),
                         title: Text('${snapshot.data[index].title}'),
                         onTap: () {
-
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SongByAlbum(album: '${snapshot.data[index].id}', albumName: '${snapshot.data[index].title}')));
                         },
 
 
