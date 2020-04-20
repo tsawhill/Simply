@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'album.dart';
-import 'settings.dart';
 import 'song.dart';
 import 'artist.dart';
 import 'nowplaying.dart';
@@ -32,7 +31,7 @@ class MainScreenState extends State<MainScreen> {
         appBar: AppBar(
           title: Text('Simply Music'),
           centerTitle: true,
-          actions: <Widget>[
+          /*actions: <Widget>[
             PopupMenuButton(
               itemBuilder: (BuildContext context) {
                 return <PopupMenuEntry> [
@@ -42,7 +41,6 @@ class MainScreenState extends State<MainScreen> {
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) => SettingsPage()));
-                        print('Bruh');
                     },
                     ),
                   ),
@@ -51,6 +49,8 @@ class MainScreenState extends State<MainScreen> {
             )
 
           ]
+
+             */
 
         ),
         body: _pages[_selectedPage],
