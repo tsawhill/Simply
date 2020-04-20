@@ -14,7 +14,7 @@ class SongsPage extends StatefulWidget {
 class SongsPageState extends State<SongsPage> {
   final audioQuery = FlutterAudioQuery();
 
-  final player = AudioPlayer();
+  static final player = AudioPlayer();
 
 
 
@@ -35,7 +35,6 @@ class SongsPageState extends State<SongsPage> {
                 return ListTile(
                   leading: (() {
                     final song = snapshot.data[index];
-                    print(song.albumArtwork);
                     if(song.albumArtwork != null)
                       return Image(image: song.albumArtwork);
                     else
@@ -45,6 +44,7 @@ class SongsPageState extends State<SongsPage> {
                   subtitle: Text('${snapshot.data[index].artist}'),
                   onTap: (){
                     playSong('${snapshot.data[index].filePath}', snapshot.data[index].title, snapshot.data[index].album, snapshot.data[index].artist);
+
                   },
                 );
               }
@@ -58,7 +58,7 @@ class SongsPageState extends State<SongsPage> {
     return audioQuery.getSongs();
   }
 
-  Future<void> playSong(String filePath, String title, String artist, String album) async {
+  static Future<void> playSong(String filePath, String title, String artist, String album) async {
     var duration = await player.setFilePath(filePath);
     player.stop();
     player.play();
