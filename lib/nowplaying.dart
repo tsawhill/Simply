@@ -13,7 +13,7 @@ class NowPlayingState extends State<NowPlaying> {
   Widget build(BuildContext context){
     return Column(
       children: <Widget>[
-        StreamBuilder<MediaItem>(
+        /*StreamBuilder<MediaItem>(
           stream: AudioService.currentMediaItemStream,
           builder: (context, snapshot) {
             print(snapshot.data);
@@ -26,6 +26,9 @@ class NowPlayingState extends State<NowPlaying> {
 
           },
         )
+
+         */
+        Text('Currently not working. In my free time I am going to be rebuilding the whole app from the ground up, adding support for this feature.'),
         ]
     );
   }
