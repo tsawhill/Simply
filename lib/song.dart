@@ -1,6 +1,6 @@
-import 'audioplayer.dart' as global;
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:flutter_audio_query/flutter_audio_query.dart';
 
 
@@ -14,7 +14,7 @@ class SongsPage extends StatefulWidget {
 class SongsPageState extends State<SongsPage> {
   final audioQuery = FlutterAudioQuery();
 
-
+  final player = AudioPlayer();
 
 
 
@@ -59,8 +59,9 @@ class SongsPageState extends State<SongsPage> {
   }
 
   Future<void> playSong(String filePath, String title, String artist, String album) async {
-    global.audioPlayer.stop();
-    global.audioPlayer.play(filePath);
+    var duration = await player.setFilePath(filePath);
+    player.stop();
+    player.play();
   }
 
 }
